@@ -42,3 +42,33 @@ plot(cadmium,lead)
 # how to impress your supervisor!
 # Scatterplot Matrices
 pairs(meuse)
+
+
+
+
+################################################
+
+# Lecture #2 on ecological variables
+# Recall the package sp, recall the dataset meuse
+
+library(sp)
+data(meuse)
+
+pairs(meuse)
+
+head(meuse)
+
+# cadmium copper lead zinc
+# pairs with soil variables
+# from column 3 to column 6
+
+pairs(meuse[,3:6]) #AltGr + e
+
+
+# using the names
+pairs(~cadmium + copper + lead + zinc, data=meuse)
+pairs(~cadmium + copper + lead + zinc, data=meuse, col="red")
+
+# exercise:
+pairs(~cadmium + copper + lead + zinc, data=meuse, pch=17)
+pairs(~cadmium + copper + lead + zinc, data=meuse, pch=17, cex=6)
