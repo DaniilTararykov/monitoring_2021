@@ -24,3 +24,8 @@ bubble(meuse, "zinc")
 # excercise 3
 bubble(meuse, "lead")
 bubble(meuse, "lead", col="blue")
+
+
+
+# installing the ggplot2 library 
+
