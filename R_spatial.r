@@ -49,3 +49,16 @@ setwd ("/Users/hausofdanik/lab/")
 
 
 setwd("/Users/hausofdanik/Documents/lab")
+
+
+covid <- read.table("covid_agg.csv", header=TRUE)
+head(covid)
+summary (covid)
+#ggplot2
+library(ggplot2)
+ggplot(covid, aes(x=lon, y=lat)) + geom_point()
+
+
+#canging the sze
+
+ggplot(covid, aes(x=lon, y=lat, size = cases)) + geom_point()
