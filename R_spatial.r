@@ -62,3 +62,17 @@ ggplot(covid, aes(x=lon, y=lat)) + geom_point()
 #canging the sze
 
 ggplot(covid, aes(x=lon, y=lat, size = cases)) + geom_point()
+
+
+# countries on a map
+
+install.packages("rgdal")
+
+library(rgdal)
+
+
+coastlines <- readOGR("ne_10m_coastline.shp")
+
+plot(density_map, col = cl)
+points(covid_planar)
+plot(coastlines, add=TRUE)
