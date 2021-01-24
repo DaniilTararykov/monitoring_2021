@@ -16,9 +16,51 @@ library(raster)
 
 setwd("/Users/hausofdanik/Documents/lab")
 
-tjan <- raster("c_gls_LST10-DC_202001010000_GLOBE_GEO_V1.2.1.nc")
+# importing images of Land Surface Temperatura of 2018
+tjan18 <- raster("jan18.nc")
 
-plot(tjan)
+#the function plot( ) is the most generic and used function for plotting dataset
+#to change the title we use the function "main":
+plot(tjan18, main="Land Surface Temperature 2018") 
+
+#col is used to change the colour
+cltjan18 <- colorRampPalette(c('blue','yellow','red'))(100) #
+plot(tjan18, col=cltjan18,  main="Land Surface Temperature 2018")
+
+# importing images of Land Surface Temperatura of 2019
+tjan19 <- raster("jan19.nc")
+plot(tjan19, col=cltjan18, main="Land Surface Temperature 2019")
+
+
+# importing images of Land Surface Temperatura of 2020
+tjan20 <- raster("jan20.nc")
+plot(tjan20,  col=cltjan18, main="Land Surface Temperature 2020")
+
+# importing images of Land Surface Temperatura of 2021
+tjan21 <- raster("jan21.nc")
+plot(tjan21,  col=cltjan18, main="Land Surface Temperature 2021")
+
+#par function is used to put multiple graphs in a single plot
+#mfrow stays for multiframe rows
+par(mfrow=c(2,2))
+#2,2 means that we will have 4 plots in total divided in 2 rows and 2 columns.
+plot(tjan18, col=cl, main="Land Surface Temperature 2018")
+plot(tjan19, col=cl, main="Land Surface Temperature 2019")
+plot(tjan20, col=cl, main="Land Surface Temperature 2020")
+plot(tjan21, col=cl, main="Land Surface Temperature 2021")
+
+ 
+     
+
+# как посчитать различие между температурами и сделать цвета
+
+dift <- tjan - toct
+
+cldif <- colorRampPalette(c('blue','white','red'))(100) # 
+
+plot(dift, col=cldif)
+
+
 
 #выбрать определнную часть на карте
 
