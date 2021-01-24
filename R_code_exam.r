@@ -33,6 +33,7 @@ plot(tjan19, col=cltjan18, main="Land Surface Temperature 2019")
 
 
 # importing images of Land Surface Temperatura of 2020
+
 tjan20 <- raster("jan20.nc")
 plot(tjan20,  col=cltjan18, main="Land Surface Temperature 2020")
 
@@ -54,7 +55,7 @@ plot(tjan21, col=cl, main="Land Surface Temperature 2021")
 
 # как посчитать различие между температурами и сделать цвета
 
-dift <- tjan - toct
+dift <- tjan18 - tjan19 - tjan20 - tjan21
 
 cldif <- colorRampPalette(c('blue','white','red'))(100) # 
 
@@ -69,3 +70,66 @@ ext <- c(0,20,35,55)  # xmin xmax ymin ymax
 copNDVI_Italy <- crop(copNDVI, ext)
 
 plot(copNDVI_Italy, col=clymax)
+
+
+__________
+
+
+av::av_encode_video(input = "2018.png", "2019.png", "2020.png", "2021.png", output = "video.mp4", framerate = 24,
+  vfilter = "null", codec = NULL, audio = NULL, verbose = TRUE)
+
+
+
+# Create some PNG images
+png("Land Surface Temperature 2018-1.png", "Land Surface Temperature 2019-1.png", "Land Surface Temperature 2020-1.png", "Land Surface Temperature 2021-1.png", width = 1280, height = 720, res = 108)
+for(i in 1:10){
+  print(ggplot2::qplot(rnorm(100)))
+}
+dev.off()
+lab <- sprintf("Land Surface Temperature 2018-1.png", "Land Surface Temperature 2019-1.png", "Land Surface Temperature 2020-1.png", "Land Surface Temperature 2021-1.png", 1:10)
+av::av_encode_video(png_files, 'output.mp4', framerate = 1)
+utils::browseURL('output.mp4')
+
+png("tjan18.png", width = 1280, height = 720, res = 108)
+for(i in 1:10){
+  print(ggplot2::qplot(rnorm(100)))
+}
+
+
+______________
+png(file="/Users/hausofdanik/Documents/lab/png_files/plot_2.png", width=600, height=350)
+plot(tjan18, col=cl, main="Land Surface Temperature 2019")
+dev.off()
+
+setwd("/Users/hausofdanik/Documents/lab/png_files")
+
+install.packages("av")
+png_files <- sprintf( ("input%03d.png", 1:10) 1:10)
+av::av_encode_video(png_files, 'output.mp4', framerate = 1)
+utils::browseURL('output.mp4')
+
+
+av::av_encode_video(list.files(/Users/hausofdanik/Documents/lab/png_files, '1.png', '2.png'), framerate = 30, output = 'test.mp4')
+
+png_files <- sprintf( "one.png", "two.png", "three.png", "four.png", 1:10)
+av::av_encode_video(png_files, output = "video.mp4", framerate = 1,
+  vfilter = "null", codec = NULL, audio = NULL, verbose = TRUE)
+____________-
+
+av::av_encode_video(png_files, "one.png", "two.png", "three.png", "four.png", framerate = 24, vfilter = "null", codec = NULL, audio = NULL, verbose = TRUE)
+
+png("input%03d.png", width = 1280, height = 720, res = 108)
+for(i in 1:10){
+  print(ggplot2::qplot(rnorm(100)))
+}
+
+
+png(file="C:/Datamentor/R-tutorial/saving_plot2.png",
+width=600, height=350)
+hist(Temperature, col="gold")
+dev.off()
+
+
+png(file="/Users/hausofdanik/Documents/lab/png_files/plot_2.png", width=600, height=350)
+plot(tjan18, col=cl, main="Land Surface Temperature 2019")
+dev.off()
