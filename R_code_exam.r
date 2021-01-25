@@ -53,9 +53,10 @@ plot(tjan21, col=cl, main="Land Surface Temperature 2021")
 dev.off()
  
 #Lets see difference between Land Surface Temperarure of 2018 and 2021      
-dift <- tjan18  - tjan21
+#diff() function in R Language is used to find the difference between each consecutive pair of elements of a vector
+diff <- tjan18  - tjan21
 cldif <- colorRampPalette(c('blue','white','red'))(100) # 
-plot(dift, col=cldif)
+plot(diff, col=cldif)
 
 dev.off()
 
@@ -102,9 +103,9 @@ plot(tjan_crop21, col=cl, main="Italy 2021")
 
 
 #Lets see difference between Land Surface Temperarure of 2018 and 2021 in Italy      
-dift <- tjan_crop18  - tjan_crop21
+diff <- tjan_crop18  - tjan_crop21
 cldif <- colorRampPalette(c('blue','white','red'))(100) # 
-plot(dift, col=cldif)
+plot(diff, col=cldif)
 
 
  #
