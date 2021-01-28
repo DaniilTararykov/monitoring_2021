@@ -56,7 +56,7 @@ dev.off()
 #diff() function in R Language is used to find the difference between each consecutive pair of elements of a vector
 diff <- tjan18  - tjan21
 cldif <- colorRampPalette(c('blue','white','red'))(100) # 
-plot(diff, col=cldif)
+plot(diff, col=cldif, main="Difference 2018 vs 2021")
 
 dev.off()
 
@@ -101,11 +101,12 @@ plot(tjan_crop19, col=cl, main="Italy 2019")
 plot(tjan_crop20, col=cl, main="Italy 2020")
 plot(tjan_crop21, col=cl, main="Italy 2021")
 
+dev.off()
 
 #Lets see difference between Land Surface Temperarure of 2018 and 2021 in Italy      
 diff <- tjan_crop18  - tjan_crop21
 cldif <- colorRampPalette(c('blue','white','red'))(100) # 
-plot(diff, col=cldif)
+plot(diff, col=cldif, main="Italy 2018 vs 2021")
 
 
  #
